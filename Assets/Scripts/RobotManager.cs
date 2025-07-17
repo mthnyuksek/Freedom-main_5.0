@@ -23,6 +23,7 @@ public class RobotManager : MonoBehaviour
 
         // Tüm robotları say
         totalRobots = GameObject.FindGameObjectsWithTag("Robot").Length;
+        //Debug.Log(GameObject.FindGameObjectsWithTag("Robot").Length);
         UpdateHUD();
     }
 
