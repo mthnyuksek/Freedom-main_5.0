@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Freedom-main_5.0.sln"
+    "dotnet.defaultSolution": "Freedom-main.sln"
 }
