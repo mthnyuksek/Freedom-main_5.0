@@ -5,6 +5,7 @@ public class butonlar : MonoBehaviour
 {
 
     bool muzik = true;
+    public GameObject obje;
 
     //oyna butonu
     public void OyunBaslat()

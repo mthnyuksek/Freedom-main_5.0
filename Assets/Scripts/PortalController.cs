@@ -1,7 +1,16 @@
 using UnityEngine;
+using System.Collections;
 
 public class PortalController : MonoBehaviour
 {
+
+[SerializeField] private ScreenFader fader; // Inspector’dan referans ver
+
+
+
+
+
+
     public Sprite closedPortalSprite;
     public Sprite openPortalSprite;
     public string nextSceneName = "Level2"; // Geçilecek sahne adı
@@ -9,10 +18,22 @@ public class PortalController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isPortalActive = false;
 
+        IEnumerator delay(float saniye)
+    {
+        yield return new WaitForSeconds(saniye);
+
+        // Buraya bekledikten sonra yapilacak isi yaz
+        UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneName);
+    }
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = closedPortalSprite; // Başlangıçta kapalı
+
+        StartCoroutine(fader.FadeFromBlack());
+
+      
     }
 
     public void ActivatePortal()
@@ -25,7 +46,9 @@ public class PortalController : MonoBehaviour
     {
         if (isPortalActive && other.CompareTag("Player"))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneName);
+            StartCoroutine(delay(2));
+            StartCoroutine(fader.FadeToBlack());
+            Debug.Log("bu beklemeden yazmali");
         }
     }
 }
