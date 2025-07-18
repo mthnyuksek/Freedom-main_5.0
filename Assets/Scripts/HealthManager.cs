@@ -47,6 +47,7 @@ public class HealthSystem : MonoBehaviour
     {
         if (collision.CompareTag("Trap"))
         {
+            AudioManager.Instance.Play("Hurt");
              Debug.Log("Çarpıştı: " + collision.gameObject.name);
             TakeDamage(25); // Diken 25 can götürsün
         }

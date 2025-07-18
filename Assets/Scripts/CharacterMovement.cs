@@ -63,9 +63,11 @@ public class CharacterMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            AudioManager.Instance.Play("Jump");
             jumpBufferCounter = jumpBufferTime;
             if (IsGrounded() || doubleJump)
             {
+            
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
 
                 doubleJump = !doubleJump;
@@ -95,6 +97,7 @@ public class CharacterMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && !isDashing)
         {
+            AudioManager.Instance.Play("Dash");
             StartCoroutine(Dash());
         }
 
@@ -165,6 +168,7 @@ public class CharacterMovement : MonoBehaviour
         isJumping = true;
         yield return new WaitForSeconds(0.4f);
         isJumping = false;
+        
     }
 
     private bool iswalled()
@@ -174,8 +178,10 @@ public class CharacterMovement : MonoBehaviour
 
     private void WallSlide()
     {
+        
         if (iswalled() && !IsGrounded() && horizontal != 0f)
         {
+            
             isWallSliding = true;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, math.clamp(rb.linearVelocity.y, -wallSlideSpeed, float.MaxValue));
 
@@ -195,6 +201,7 @@ public class CharacterMovement : MonoBehaviour
             wallJumpingCounter = wallJumpingTime;
 
             CancelInvoke(nameof(StopWallJump));
+            
         }
         else
         {
@@ -202,6 +209,7 @@ public class CharacterMovement : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
         {
+            
             isWallJumping = true;
             rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingForce.x, wallJumpingForce.y);
             wallJumpingCounter = 0f;

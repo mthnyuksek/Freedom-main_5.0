@@ -38,6 +38,7 @@ public class PortalController : MonoBehaviour
 
     public void ActivatePortal()
     {
+        AudioManager.Instance.Play("PortalOpen");
         isPortalActive = true;
         spriteRenderer.sprite = openPortalSprite; // Sprite'ı açık hale getir
     }

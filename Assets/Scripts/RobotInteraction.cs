@@ -9,6 +9,7 @@ public class Robot : MonoBehaviour
     {
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
         {
+            AudioManager.Instance.Play("RobotFree");
             RobotManager.Instance.RescueRobot();
             if (textObject != null)
                 textObject.SetActive(false); // Yazıyı kapat
