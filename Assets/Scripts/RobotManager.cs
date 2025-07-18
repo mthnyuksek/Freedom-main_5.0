@@ -30,6 +30,6 @@ public class RobotManager : MonoBehaviour
 
     private void UpdateHUD()
     {
-        robotCounterText.text = $"{rescuedRobots}/{totalRobots}";
+        robotCounterText.text = $"OZGURLESTIRILEN ROBOTLAR:    {rescuedRobots}/{totalRobots}";
     }
 }
