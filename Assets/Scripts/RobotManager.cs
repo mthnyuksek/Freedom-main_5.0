@@ -4,26 +4,15 @@ using TMPro;
 public class RobotManager : MonoBehaviour
 {
     public static RobotManager Instance;
-
     public int totalRobots = 0;
     public int rescuedRobots = 0;
-
     public TMP_Text robotCounterText;
+    public PortalController portalController; // Inspector'dan ata
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        // Tüm robotları say
+        Instance = this;
         totalRobots = GameObject.FindGameObjectsWithTag("Robot").Length;
-        //Debug.Log(GameObject.FindGameObjectsWithTag("Robot").Length);
         UpdateHUD();
     }
 
@@ -31,6 +20,12 @@ public class RobotManager : MonoBehaviour
     {
         rescuedRobots++;
         UpdateHUD();
+
+        // Tüm robotlar kurtarıldıysa portalı aktif et
+        if (rescuedRobots >= totalRobots && portalController != null)
+        {
+            portalController.ActivatePortal();
+        }
     }
 
     private void UpdateHUD()
