@@ -6297,6 +6297,86 @@ Transform:
   - {fileID: 199026905}
   m_Father: {fileID: 191319692}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1934838183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1934838185}
+  - component: {fileID: 1934838184}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1934838184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934838183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8cbbb535b585e49b2478892fe57d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Jump
+    clip: {fileID: 8300000, guid: abf6a09e2431eca409f4c112fba49122, type: 3}
+    volume: 0.8
+    loop: 0
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: ef8efb4fa94289d48ba580c177e8c880, type: 3}
+    volume: 0.7
+    loop: 0
+    source: {fileID: 0}
+  - name: PortalOpen
+    clip: {fileID: 8300000, guid: d8b57dbcf3dcf024a9a1aa91e7a74d1c, type: 3}
+    volume: 0.9
+    loop: 0
+    source: {fileID: 0}
+  - name: RobotFree
+    clip: {fileID: 8300000, guid: 889a768d24931f24296cf96486774933, type: 3}
+    volume: 0.5
+    loop: 0
+    source: {fileID: 0}
+  - name: Hurt
+    clip: {fileID: 8300000, guid: eef7564bc853a7048a04b9eef9d8efd7, type: 3}
+    volume: 0.6
+    loop: 0
+    source: {fileID: 0}
+  - name: BGM
+    clip: {fileID: 8300000, guid: f1f5f581157eff140929e01b312dfc66, type: 3}
+    volume: 0.1
+    loop: 1
+    source: {fileID: 0}
+  - name: BGM
+    clip: {fileID: 8300000, guid: f1f5f581157eff140929e01b312dfc66, type: 3}
+    volume: 0.5
+    loop: 1
+    source: {fileID: 0}
+--- !u!4 &1934838185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934838183}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -122.20737, y: 44.41803, z: 0.5763808}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1987935573
 GameObject:
   m_ObjectHideFlags: 0
@@ -7095,3 +7175,4 @@ SceneRoots:
   - {fileID: 414966532}
   - {fileID: 726661393}
   - {fileID: 1116896694}
+  - {fileID: 1934838185}

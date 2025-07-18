@@ -69,6 +69,7 @@ public class CharacterMovement : MonoBehaviour
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
 
                 doubleJump = !doubleJump;
+                AudioManager.Instance.Play("Jump");
             }
         }
         else
@@ -143,7 +144,7 @@ public class CharacterMovement : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
-
+        AudioManager.Instance.Play("Dash");
 
         float originalGravityScale = rb.gravityScale;
         rb.gravityScale = 0f;
@@ -158,6 +159,7 @@ public class CharacterMovement : MonoBehaviour
 
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+        
     }
 
     private IEnumerator JumpCooldown()
@@ -195,6 +197,7 @@ public class CharacterMovement : MonoBehaviour
             wallJumpingCounter = wallJumpingTime;
 
             CancelInvoke(nameof(StopWallJump));
+            
         }
         else
         {
@@ -212,6 +215,7 @@ public class CharacterMovement : MonoBehaviour
                 isFacingRight = !isFacingRight;
                 localScale.x *= -1f;
                 transform.localScale = localScale;
+                 AudioManager.Instance.Play("Jump");
             }
 
             Invoke(nameof(StopWallJump), wallJumpingDuration);

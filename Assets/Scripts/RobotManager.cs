@@ -11,6 +11,7 @@ public class RobotManager : MonoBehaviour
 
     private void Awake()
     {
+        AudioManager.Instance.Play("BGM");
         Instance = this;
         totalRobots = GameObject.FindGameObjectsWithTag("Robot").Length;
         UpdateHUD();
